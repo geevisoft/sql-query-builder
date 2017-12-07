@@ -116,4 +116,5 @@ public class SqlQueryBuilderTest {
         String writtenQuery = "SELECT * FROM Users INNER JOIN Clients ON ClientID=ID INNER JOIN Tickets ON UserID=ID";
         assertEquals(writtenQuery, query);
     }
+    
 }
