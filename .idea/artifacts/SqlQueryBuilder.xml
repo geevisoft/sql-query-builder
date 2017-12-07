@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SqlQueryBuilder">
+    <output-path>$PROJECT_DIR$/</output-path>
+    <root id="archive" name="SqlQueryBuilder.jar">
+      <element id="module-output" name="SqlQueryBuilder" />
+    </root>
+  </artifact>
+</component>
