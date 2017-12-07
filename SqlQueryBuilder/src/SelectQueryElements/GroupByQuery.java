@@ -1,4 +1,6 @@
-package QueryElements;
+package SelectQueryElements;
+
+import QueryElements.FinishableQuery;
 
 public class GroupByQuery extends FinishableQuery {
 

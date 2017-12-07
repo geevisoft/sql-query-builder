@@ -1,5 +1,6 @@
-package QueryElements;
+package SelectQueryElements;
 
+import QueryElements.FinishableQuery;
 import Utils.StringHelper;
 
 import java.util.ArrayList;

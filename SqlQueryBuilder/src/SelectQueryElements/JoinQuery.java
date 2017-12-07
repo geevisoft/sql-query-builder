@@ -1,4 +1,4 @@
-package QueryElements;
+package SelectQueryElements;
 
 public class JoinQuery extends MediumQuery implements IJoinQuery {
 

@@ -1,7 +1,7 @@
-package QueryMethods;
+package SelectQueryElements.QueryMethods;
 
-import QueryElements.EndQuery;
-import QueryElements.JoinQuery;
+import SelectQueryElements.EndQuery;
+import SelectQueryElements.JoinQuery;
 
 public abstract class JoinMethods extends EndQuery {
 

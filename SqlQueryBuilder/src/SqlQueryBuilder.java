@@ -1,4 +1,5 @@
-import QueryElements.SelectQuery;
+import DeleteQueryElements.DeleteQuery;
+import SelectQueryElements.SelectQuery;
 import UpdateQueryElements.UpdateQuery;
 
 public class SqlQueryBuilder {
@@ -30,4 +31,8 @@ public class SqlQueryBuilder {
         return new UpdateQuery(formattedQuery);
     }
 
+    public DeleteQuery delete(String table){
+        String formattedQuery = String.format("DELETE FROM %s", table);
+        return new DeleteQuery(formattedQuery);
+    }
 }

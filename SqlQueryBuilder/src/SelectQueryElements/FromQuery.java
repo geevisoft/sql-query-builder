@@ -1,4 +1,4 @@
-package QueryElements;
+package SelectQueryElements;
 
 public class FromQuery extends MediumQuery implements IFromQuery {
 

@@ -1,4 +1,4 @@
-package QueryElements;
+package SelectQueryElements;
 
 public class WhereQuery extends EndQuery implements IWhereQuery  {
 

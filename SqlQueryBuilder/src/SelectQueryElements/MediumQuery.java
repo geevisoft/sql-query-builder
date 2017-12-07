@@ -1,6 +1,6 @@
-package QueryElements;
+package SelectQueryElements;
 
-import QueryMethods.*;
+import SelectQueryElements.QueryMethods.*;
 
 /**
  * Element in the middle of the query, still capable of a lot of method calls

@@ -1,4 +1,4 @@
-package QueryElements;
+package SelectQueryElements;
 
 public interface IFromQuery extends
         IWhereMethods,

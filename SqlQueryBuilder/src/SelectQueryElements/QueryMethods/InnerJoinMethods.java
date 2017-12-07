@@ -1,4 +1,4 @@
-package QueryMethods;
+package SelectQueryElements.QueryMethods;
 
 public class InnerJoinMethods extends JoinMethods {
 

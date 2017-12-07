@@ -1,4 +1,4 @@
-package QueryElements;
+package SelectQueryElements;
 
 /**
  * Element at almost the end of the query, capable of group and order
