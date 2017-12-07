@@ -1,4 +1,5 @@
 import DeleteQueryElements.DeleteQuery;
+import InsertQueryElements.InsertQuery;
 import SelectQueryElements.SelectQuery;
 import UpdateQueryElements.UpdateQuery;
 
@@ -34,5 +35,10 @@ public class SqlQueryBuilder {
     public DeleteQuery delete(String table){
         String formattedQuery = String.format("DELETE FROM %s", table);
         return new DeleteQuery(formattedQuery);
+    }
+
+    public InsertQuery insertInto(String table){
+        String formattedQuery = String.format("INSERT INTO %s", table);
+        return new InsertQuery(formattedQuery);
     }
 }
