@@ -1,6 +1,8 @@
 package SelectQueryElements;
 
-import SelectQueryElements.QueryMethods.*;
+import SelectQueryElements.QueryMethods.InnerJoinMethods;
+import SelectQueryElements.QueryMethods.LeftJoinMethods;
+import SelectQueryElements.QueryMethods.RightJoinMethods;
 
 /**
  * Element in the middle of the query, still capable of a lot of method calls
