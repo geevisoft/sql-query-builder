@@ -1,53 +1,48 @@
 package InsertQueryElements;
 
-import QueryElements.FinishableQuery;
+import QueryElements.Query;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InsertQuery extends FinishableQuery {
+public class InsertQuery extends Query {
 
-    private final List<String> columns;
-    private final List<String> values;
+    protected final List<String> columns;
+    protected final List<String> values;
 
     public InsertQuery(String query) {
-        super(query);
         this.previousQuery = query;
         this.columns = new ArrayList<>();
         this.values = new ArrayList<>();
     }
 
+    public InsertQuery(String query, String column, String value){
+        this(query);
+        columns.add(column);
+        values.add(value);
+    }
+
     //<editor-fold desc="VALUE">
-    public InsertQuery value(String column, String value){
+    public InsertRestOfValuesQuery value(String column, String value){
         String escapedValue = String.format("'%s'", value);
         return setValue(column, escapedValue);
     }
 
-    public InsertQuery value(String column, int value){
+    public InsertRestOfValuesQuery value(String column, int value){
         return setValue(column, String.valueOf(value));
     }
 
-    public InsertQuery value(String column, double value){
+    public InsertRestOfValuesQuery value(String column, double value){
         return setValue(column, String.valueOf(value));
     }
 
-    public InsertQuery value(String column, boolean value){
+    public InsertRestOfValuesQuery value(String column, boolean value){
         return value(column, value ? 1 : 0);
     }
 
-    private InsertQuery setValue(String column, String value){
-        columns.add(column);
-        values.add(value);
-        return this;
+    protected InsertRestOfValuesQuery setValue(String column, String value){
+        return new InsertRestOfValuesQuery(previousQuery, column, value);
     }
     //</editor-fold>
 
-    @Override
-    public String query() {
-        String columns = String.join(", ", this.columns);
-        String values = String.join(", ", this.values);
-        localClause = String.format("(%s) VALUES (%s)", columns, values);
-        previousQuery = formattedQuery();
-        return super.query();
-    }
 }

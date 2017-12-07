@@ -13,6 +13,16 @@ public class SqlInsertQueryBuilderTest {
     }
 
     @Test
+    void insertOneWithOneValue(){
+        String query = builder
+                .insertInto("Users")
+                .value("FirstName", "John")
+                .query();
+        String writtenQuery = "INSERT INTO Users (FirstName) VALUES ('John')";
+        assertEquals(writtenQuery, query);
+    }
+
+    @Test
     void insertOneWithThreeValue(){
         String query = builder
                 .insertInto("Users")
