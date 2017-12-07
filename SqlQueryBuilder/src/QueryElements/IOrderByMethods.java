@@ -4,16 +4,18 @@ public interface IOrderByMethods {
 
     /**
      * Order query by given column(s)
-     * @param columns
+     * @param firstColumn
+     * @param otherColumns
      * @return
      */
-    OrderByQuery orderBy(String... columns);
+    OrderByQuery orderBy(String firstColumn, String... otherColumns);
 
     /**
      * Order query descending by given column(s)
-     * @param columns
+     * @param firstColumn
+     * @param otherColumns
      * @return
      */
-    OrderByQuery orderByDescending(String... columns);
+    OrderByQuery orderByDescending(String firstColumn, String... otherColumns);
 
 }

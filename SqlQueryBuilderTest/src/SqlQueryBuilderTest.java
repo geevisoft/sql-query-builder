@@ -116,5 +116,15 @@ public class SqlQueryBuilderTest {
         String writtenQuery = "SELECT * FROM Users INNER JOIN Clients ON ClientID=ID INNER JOIN Tickets ON UserID=ID";
         assertEquals(writtenQuery, query);
     }
-    
+
+    @Test
+    void selectFromAndTwoOrders(){
+        String query = builder
+                .select()
+                .from("Users")
+                .orderBy("LastName", "FirstName")
+                .query();
+        String writtenQuery = "SELECT * FROM Users ORDER BY LastName, FirstName";
+        assertEquals(writtenQuery, query);
+    }
 }

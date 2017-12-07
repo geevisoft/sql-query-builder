@@ -1,5 +1,10 @@
 package QueryElements;
 
+import Utils.StringHelper;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class OrderableQuery extends FinishableQuery {
 
     protected OrderableQuery(String query) {
@@ -7,15 +12,21 @@ public class OrderableQuery extends FinishableQuery {
     }
 
     //<editor-fold desc="ORDER BY">
-    public OrderByQuery orderBy(String... columns){
-        String columnQuery = String.join(", ", columns);
-        localClause = String.format("ORDER BY %s", columnQuery);
-        return orderByQuery();
+    public OrderByQuery orderBy(String firstColumn, String... otherColumns){
+        return orderBy(StringHelper.EMPTY, firstColumn, otherColumns);
     }
 
-    public OrderByQuery orderByDescending(String... columns){
-        String columnQuery = String.join(", ", columns);
-        localClause =  String.format("ORDER BY %s DESC", columnQuery);
+    public OrderByQuery orderByDescending(String firstColumn, String... otherColumns){
+        return orderBy("DESC", firstColumn, otherColumns);
+    }
+
+    private OrderByQuery orderBy(String direction, String firstColumn, String... otherColumns){
+        String columnQuery = columnQuery(firstColumn, otherColumns);
+        if(StringHelper.isNullOrEmpty(direction)){
+            localClause = String.format("ORDER BY %s", columnQuery);
+        } else {
+            localClause = String.format("ORDER BY %s %s", columnQuery, direction);
+        }
         return orderByQuery();
     }
 
@@ -23,5 +34,10 @@ public class OrderableQuery extends FinishableQuery {
         return new OrderByQuery(formattedQuery());
     }
     //</editor-fold>
-    
+
+    protected String columnQuery(String firstColumn, String... otherColumns){
+        ArrayList<String> columns = new ArrayList<>(Arrays.asList(otherColumns));
+        columns.add(0, firstColumn);
+        return String.join(", ", columns);
+    }
 }

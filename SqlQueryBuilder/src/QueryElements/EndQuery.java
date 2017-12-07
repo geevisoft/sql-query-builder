@@ -10,8 +10,8 @@ public class EndQuery extends OrderableQuery {
     }
 
     //<editor-fold desc="GROUP BY">
-    public GroupByQuery groupBy(String... columns){
-        String columnQuery = String.join(", ", columns);
+    public GroupByQuery groupBy(String firstColumn, String... otherColumns){
+        String columnQuery = columnQuery(firstColumn, otherColumns);
         localClause = String.format("GROUP BY %s", columnQuery);
         return groupByQuery();
     }

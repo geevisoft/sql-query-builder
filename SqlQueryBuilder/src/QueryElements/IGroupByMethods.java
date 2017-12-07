@@ -4,9 +4,10 @@ public interface IGroupByMethods {
 
     /**
      * Group query by given column(s)
-     * @param columns
+     * @param firstColumn
+     * @param otherColumns
      * @return
      */
-    GroupByQuery groupBy(String... columns);
+    GroupByQuery groupBy(String firstColumn, String... otherColumns);
 
 }
