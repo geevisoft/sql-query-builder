@@ -8,25 +8,25 @@ public interface ILeftJoinMethods {
      * @param clause
      * @return
      */
-    LeftJoinQuery leftJoin(String table, String clause);
+    IJoinQuery leftJoin(String table, String clause);
 
     /**
-     * Make left joiun with given table and default equality
+     * Make left join with given table and default equality clause
      * @param table
      * @param leftId
      * @param rightId
      * @return
      */
-    LeftJoinQuery leftJoin(String table, String leftId, String rightId);
+    IJoinQuery leftJoin(String table, String leftId, String rightId);
 
     /**
-     * Make left joiun with given table, default equality and other complementary clause
+     * Make left join with given table, default equality clause and other complementary clause
      * @param table
      * @param leftId
      * @param rightId
      * @param otherClauses
      * @return
      */
-    LeftJoinQuery leftJoin(String table, String leftId, String rightId, String otherClauses);
+    IJoinQuery leftJoin(String table, String leftId, String rightId, String otherClauses);
 
 }

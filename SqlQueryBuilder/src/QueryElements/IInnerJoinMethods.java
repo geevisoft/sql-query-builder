@@ -8,7 +8,7 @@ public interface IInnerJoinMethods {
      * @param clause
      * @return
      */
-    InnerJoinQuery innerJoin(String table, String clause);
+    IJoinQuery innerJoin(String table, String clause);
 
     /**
      * Make inner join with given table and default equality clause
@@ -17,7 +17,7 @@ public interface IInnerJoinMethods {
      * @param rightId
      * @return
      */
-    InnerJoinQuery innerJoin(String table, String leftId, String rightId);
+    IJoinQuery innerJoin(String table, String leftId, String rightId);
 
     /**
      * Make inner join with given table, default equality clause and other complementary clause
@@ -27,6 +27,6 @@ public interface IInnerJoinMethods {
      * @param otherClauses
      * @return
      */
-    InnerJoinQuery innerJoin(String table, String leftId, String rightId, String otherClauses);
+    IJoinQuery innerJoin(String table, String leftId, String rightId, String otherClauses);
 
 }

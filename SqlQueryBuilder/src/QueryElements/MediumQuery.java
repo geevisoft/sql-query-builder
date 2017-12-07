@@ -30,45 +30,68 @@ public class MediumQuery extends EndQuery {
     }
     //</editor-fold>
 
+    //<editor-fold desc="JOIN">
     //<editor-fold desc="INNER JOIN">
-    public InnerJoinQuery innerJoin(String table, String clause){
-        localClause = String.format("INNER JOIN %s ON %s", table, clause);
-        return innerJoinQuery();
+    public JoinQuery innerJoin(String table, String clause){
+        join("INNER", table, clause);
+        return joinQuery();
     }
 
-    public InnerJoinQuery innerJoin(String table, String leftId, String rightId){
+    public JoinQuery innerJoin(String table, String leftId, String rightId){
         String clause = String.format("%s=%s", leftId, rightId);
         return innerJoin(table, clause);
     }
 
-    public InnerJoinQuery innerJoin(String table, String leftId, String rightId, String otherClauses){
-        localClause = String.format("%s %s", innerJoin(table, leftId, rightId), otherClauses);
-        return innerJoinQuery();
-    }
-
-    private InnerJoinQuery innerJoinQuery(){
-        return new InnerJoinQuery(formattedQuery());
+    public JoinQuery innerJoin(String table, String leftId, String rightId, String otherClauses){
+        return join("INNER", table, leftId, rightId, otherClauses);
     }
     //</editor-fold>
 
     //<editor-fold desc="LEFT JOIN">
-    public LeftJoinQuery leftJoin(String table, String clause){
-        localClause = String.format("LEFT JOIN %s ON %s", table, clause);
-        return leftJoinQuery();
+    public JoinQuery leftJoin(String table, String clause){
+        return join("LEFT", table, clause);
     }
 
-    public LeftJoinQuery leftJoin(String table, String leftId, String rightId){
-        String clause = String.format(" %s=%s", leftId, rightId);
-        return leftJoin(table, clause);
+    public JoinQuery leftJoin(String table, String leftId, String rightId){
+        return join("LEFT", table, leftId, rightId);
     }
 
-    public LeftJoinQuery leftJoin(String table, String leftId, String rightId, String otherClauses){
-        localClause = String.format(" %s %s ", leftJoin(table, leftId, rightId), otherClauses);
-        return leftJoinQuery();
+    public JoinQuery leftJoin(String table, String leftId, String rightId, String otherClauses){
+        return join("LEFT", table, leftId, rightId, otherClauses);
+    }
+    //</editor-fold>
+
+    //<editor-fold desc="RIGHT JOIN">
+    public IJoinQuery rightJoin(String table, String clause){
+        return join("RIGHT", table, clause);
     }
 
-    private LeftJoinQuery leftJoinQuery(){
-        return new LeftJoinQuery(formattedQuery());
+    public IJoinQuery rightJoin(String table, String leftId, String rightId){
+        return join("RIGHT", table, leftId, rightId);
+    }
+
+    public IJoinQuery rightJoin(String table, String leftId, String rightId, String otherClauses){
+        return join("RIGHT", table, leftId, rightId, otherClauses);
+    }
+    //</editor-fold>
+
+    private JoinQuery join(String joinType, String table, String clause){
+        localClause = String.format("%s JOIN %s ON %s", joinType, table, clause);
+        return joinQuery();
+    }
+
+    private JoinQuery join(String joinType, String table, String leftId, String rightId){
+        String clause = String.format("%s=%s", leftId, rightId);
+        return join(joinType, table, clause);
+    }
+
+    private JoinQuery join(String joinType, String table, String leftId, String rightId, String otherClauses){
+        localClause = String.format("%s %s", join(joinType, table, leftId, rightId), otherClauses);
+        return joinQuery();
+    }
+
+    private JoinQuery joinQuery(){
+        return new JoinQuery(formattedQuery());
     }
     //</editor-fold>
 
