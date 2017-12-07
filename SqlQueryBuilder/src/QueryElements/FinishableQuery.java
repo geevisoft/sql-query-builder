@@ -1,16 +1,14 @@
 package QueryElements;
 
-public abstract class FinishableQuery implements IFinishableQuery {
-
-    private final String query;
+public abstract class FinishableQuery extends Query implements IFinishableQuery {
 
     protected FinishableQuery(String query) {
-        this.query = query;
+        this.previousQuery = query;
     }
 
     @Override
     public String query() {
-        return query;
+        return previousQuery;
     }
 
 }

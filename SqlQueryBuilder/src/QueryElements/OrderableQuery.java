@@ -1,8 +1,8 @@
 package QueryElements;
 
-public class GroupByQuery extends FinishableQuery {
+public class OrderableQuery extends FinishableQuery {
 
-    protected GroupByQuery(String query) {
+    protected OrderableQuery(String query) {
         super(query);
     }
 
@@ -23,5 +23,5 @@ public class GroupByQuery extends FinishableQuery {
         return new OrderByQuery(formattedQuery());
     }
     //</editor-fold>
-
+    
 }

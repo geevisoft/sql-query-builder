@@ -1,6 +1,6 @@
 package QueryElements;
 
-public class LeftJoinQuery extends FinishableQuery {
+public class LeftJoinQuery extends JoinQuery {
 
     protected LeftJoinQuery(String query) {
         super(query);
