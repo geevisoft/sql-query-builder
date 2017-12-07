@@ -1,4 +1,5 @@
 import QueryElements.SelectQuery;
+import UpdateQueryElements.UpdateQuery;
 
 public class SqlQueryBuilder {
 
@@ -22,6 +23,11 @@ public class SqlQueryBuilder {
         String columnQuery = columns.length == 0 ? "*" : String.join(", ", columns);
         String formattedQuery = String.format("SELECT DISTINCT %s", columnQuery);
         return new SelectQuery(formattedQuery);
+    }
+
+    public UpdateQuery update(String table){
+        String formattedQuery = String.format("UPDATE %s", table);
+        return new UpdateQuery(formattedQuery);
     }
 
 }

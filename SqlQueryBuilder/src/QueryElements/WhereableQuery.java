@@ -14,13 +14,13 @@ public class WhereableQuery extends EndQuery {
         return whereQuery();
     }
 
-    public WhereQuery whereEqual(String left, String right){
-        String clause = equal(left, right);
+    public WhereQuery whereEqual(String column, String value){
+        String clause = equal(column, value);
         return where(clause);
     }
 
-    public WhereQuery whereEqual(String left, int right){
-        String clause = equal(left, right);
+    public WhereQuery whereEqual(String column, int value){
+        String clause = equal(column, value);
         return where(clause);
     }
 
