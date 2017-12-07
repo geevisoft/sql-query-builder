@@ -5,11 +5,11 @@ You will not have to modify any of your existing code to start using this when a
 
 ## Getting Started
 
-TODO
+Load [SqlQueryBuilder.jar](SqlQueryBuilder.jar) as a library in your project
 
 ### Prerequisites
 
-None
+It's currently built on Java 8. Plans to get the Java API level as low as possible.
 
 ## Contributing
 
@@ -21,6 +21,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Not having to write raw queries in old projects where no framework was used.
-* Not having to edit any other file except for the one where you "want" to add functionality
+* Can avoid to write raw queries in old projects where no framework was used.
+* Can avoid to edit any other file except the one where you "want" to add functionality
 
