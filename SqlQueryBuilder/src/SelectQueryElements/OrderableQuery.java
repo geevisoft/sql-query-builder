@@ -37,8 +37,8 @@ public class OrderableQuery extends FinishableQuery {
     //</editor-fold>
 
     protected String columnQuery(String firstColumn, String... otherColumns){
-        ArrayList<String> columns = new ArrayList<>(Arrays.asList(otherColumns));
+        ArrayList<String> columns = new ArrayList<String>(Arrays.asList(otherColumns));
         columns.add(0, firstColumn);
-        return String.join(", ", columns);
+        return StringHelper.join(", ", columns);
     }
 }

@@ -2,6 +2,7 @@ import DeleteQueryElements.DeleteQuery;
 import InsertQueryElements.InsertQuery;
 import SelectQueryElements.SelectQuery;
 import UpdateQueryElements.UpdateQuery;
+import Utils.StringHelper;
 
 public class SqlQueryBuilder {
 
@@ -11,7 +12,7 @@ public class SqlQueryBuilder {
      * @return
      */
     public SelectQuery select(String... columns){
-        String columnQuery = columns.length == 0 ? "*" : String.join(", ", columns);
+        String columnQuery = columns.length == 0 ? "*" : StringHelper.join(", ", columns);
         String formattedQuery = String.format("SELECT %s", columnQuery);
         return new SelectQuery(formattedQuery);
     }
@@ -22,7 +23,7 @@ public class SqlQueryBuilder {
      * @return
      */
     public SelectQuery selectDistinct(String... columns){
-        String columnQuery = columns.length == 0 ? "*" : String.join(", ", columns);
+        String columnQuery = columns.length == 0 ? "*" : StringHelper.join(", ", columns);
         String formattedQuery = String.format("SELECT DISTINCT %s", columnQuery);
         return new SelectQuery(formattedQuery);
     }

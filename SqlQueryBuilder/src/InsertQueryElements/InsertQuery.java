@@ -12,8 +12,8 @@ public class InsertQuery extends Query {
 
     public InsertQuery(String query) {
         this.previousQuery = query;
-        this.columns = new ArrayList<>();
-        this.values = new ArrayList<>();
+        this.columns = new ArrayList<String>();
+        this.values = new ArrayList<String>();
     }
 
     public InsertQuery(String query, String column, String value){

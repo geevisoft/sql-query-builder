@@ -1,6 +1,7 @@
 package DeleteQueryElements;
 
 import QueryElements.Query;
+import QueryElements.WhereQuery;
 
 public class DeleteQuery extends Query {
 

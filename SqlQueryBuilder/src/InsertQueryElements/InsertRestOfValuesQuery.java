@@ -1,6 +1,7 @@
 package InsertQueryElements;
 
 import QueryElements.IFinishableQuery;
+import Utils.StringHelper;
 
 public class InsertRestOfValuesQuery extends InsertQuery implements IFinishableQuery {
 
@@ -17,8 +18,8 @@ public class InsertRestOfValuesQuery extends InsertQuery implements IFinishableQ
 
     @Override
     public String query() {
-        String columns = String.join(", ", this.columns);
-        String values = String.join(", ", this.values);
+        String columns = StringHelper.join(", ", this.columns);
+        String values = StringHelper.join(", ", this.values);
         localClause = String.format("(%s) VALUES (%s)", columns, values);
         return new EndQuery(formattedQuery()).query();
     }

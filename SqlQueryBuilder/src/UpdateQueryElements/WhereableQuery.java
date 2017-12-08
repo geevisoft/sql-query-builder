@@ -1,6 +1,8 @@
 package UpdateQueryElements;
 
 import QueryElements.Query;
+import QueryElements.WhereQuery;
+import Utils.StringHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +13,11 @@ public class WhereableQuery extends Query {
 
     public WhereableQuery(String query) {
         this.previousQuery = query;
-        setValues = new ArrayList<>();
+        setValues = new ArrayList<String>();
     }
 
     public WhereQuery where(String clause){
-        String setValuesQuery = String.join(", ", setValues);
+        String setValuesQuery = StringHelper.join(", ", setValues);
         localClause = String.format("SET %s WHERE %s", setValuesQuery, clause);
         return new WhereQuery(formattedQuery());
     }
