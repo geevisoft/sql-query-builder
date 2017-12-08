@@ -2,5 +2,5 @@ package QueryElements;
 
 public interface IFinishableQuery {
 
-    public String query();
+    String query();
 }

@@ -23,7 +23,7 @@ public abstract class JoinMethods extends EndQuery {
     }
 
     public JoinQuery join(String table, String leftId, String rightId, String otherClauses){
-        localClause = String.format("%s %s", join(type, table, leftId, rightId), otherClauses);
+        localClause = String.format("%s %s", join(table, leftId, rightId), otherClauses);
         return joinQuery();
     }
 
