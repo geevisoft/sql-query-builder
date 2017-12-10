@@ -13,6 +13,15 @@ public interface IInnerJoinMethods {
 	IJoinQuery innerJoin(String table, String clause);
 
 	/**
+	 * Make inner join with given table (named as given alias) and clause
+	 * @param table
+	 * @param alias
+	 * @param clause
+	 * @return
+	 */
+	IJoinQuery innerJoinAs(String table, String alias, String clause);
+
+	/**
 	 * Make inner join with given table and default equality clause
 	 * @param table
 	 * @param oneColumn

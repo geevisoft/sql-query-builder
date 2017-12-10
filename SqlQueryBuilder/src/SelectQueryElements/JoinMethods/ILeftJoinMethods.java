@@ -13,6 +13,15 @@ public interface ILeftJoinMethods {
 	IJoinQuery leftJoin(String table, String clause);
 
 	/**
+	 * Make left join with given table (named as given alias) and clause
+	 * @param table
+	 * @param alias
+	 * @param clause
+	 * @return
+	 */
+	IJoinQuery leftJoinAs(String table, String alias, String clause);
+
+	/**
 	 * Make left join with given table and default equality clause
 	 * @param table
 	 * @param oneColumn

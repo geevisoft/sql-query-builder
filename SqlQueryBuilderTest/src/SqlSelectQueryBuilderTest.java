@@ -137,4 +137,16 @@ public class SqlSelectQueryBuilderTest {
 		String writtenQuery = "SELECT * FROM Users ORDER BY LastName, FirstName";
 		assertEquals(writtenQuery, query);
 	}
+
+	@Test
+	void selectWithJoinsAndAlias(){
+	    String query = builder
+			.select("u.ID", "c.ID", "t.ID")
+			.from("Users", "u")
+			.innerJoinAs("Clients", "c", "c.ID=u.ClientID")
+			.leftJoinAs("Tickets", "t", "t.UserID=u.ID")
+			.query();
+	    String writtenQuery = "SELECT u.ID, c.ID, t.ID FROM Users u INNER JOIN Clients c ON c.ID=u.ClientID LEFT JOIN Tickets t ON t.UserID=u.ID";
+	    assertEquals(writtenQuery, query);
+	}
 }

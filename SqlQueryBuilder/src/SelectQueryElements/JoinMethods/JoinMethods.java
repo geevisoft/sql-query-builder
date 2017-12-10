@@ -18,6 +18,11 @@ public class JoinMethods extends GroupQuery {
 		return joinQuery();
 	}
 
+	public IJoinQuery joinAs(String table, String alias, String clause){
+		localClause = String.format("%s JOIN %s %s ON %s", type, table, alias, clause);
+		return joinQuery();
+	}
+
 	public IJoinQuery join(String table, String oneColumn, String anotherColumn){
 		String clause = String.format("%s=%s", oneColumn, anotherColumn);
 		return join(table, clause);

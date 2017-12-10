@@ -13,6 +13,15 @@ public interface IRightJoinMethods {
 	IJoinQuery rightJoin(String table, String clause);
 
 	/**
+	 * Make right join with given table (named as given alias) and clause
+	 * @param table
+	 * @param alias
+	 * @param clause
+	 * @return
+	 */
+	IJoinQuery rightJoinAs(String table, String alias, String clause);
+
+	/**
 	 * Make right join with given table and default equality
 	 * @param table
 	 * @param oneColumn
