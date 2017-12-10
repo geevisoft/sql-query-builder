@@ -3,11 +3,11 @@ package SelectQueryElements.QueryMethods;
 import SelectQueryElements.EndQuery;
 import SelectQueryElements.JoinQuery;
 
-public abstract class JoinMethods extends EndQuery {
+public class JoinMethods extends EndQuery {
 
     private final String type;
 
-    protected JoinMethods(String query, String type) {
+    public JoinMethods(String query, String type) {
         super(query);
         this.type = type;
     }
@@ -17,13 +17,13 @@ public abstract class JoinMethods extends EndQuery {
         return joinQuery();
     }
 
-    public JoinQuery join(String table, String leftId, String rightId){
-        String clause = String.format("%s=%s", leftId, rightId);
+    public JoinQuery join(String table, String oneColumn, String anotherColumn){
+        String clause = String.format("%s=%s", oneColumn, anotherColumn);
         return join(table, clause);
     }
 
-    public JoinQuery join(String table, String leftId, String rightId, String otherClauses){
-        localClause = String.format("%s %s", join(table, leftId, rightId), otherClauses);
+    public JoinQuery join(String table, String oneColumn, String anotherColumn, String otherClauses){
+        localClause = String.format("%s %s", join(table, oneColumn, anotherColumn), otherClauses);
         return joinQuery();
     }
 

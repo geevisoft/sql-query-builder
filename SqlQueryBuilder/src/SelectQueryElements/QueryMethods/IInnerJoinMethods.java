@@ -1,4 +1,6 @@
-package SelectQueryElements;
+package SelectQueryElements.QueryMethods;
+
+import SelectQueryElements.IJoinQuery;
 
 public interface IInnerJoinMethods {
 
@@ -13,20 +15,20 @@ public interface IInnerJoinMethods {
     /**
      * Make inner join with given table and default equality clause
      * @param table
-     * @param leftId
-     * @param rightId
+     * @param oneColumn
+     * @param anotherColumn
      * @return
      */
-    IJoinQuery innerJoin(String table, String leftId, String rightId);
+    IJoinQuery innerJoin(String table, String oneColumn, String anotherColumn);
 
     /**
      * Make inner join with given table, default equality clause and other complementary clause
      * @param table
-     * @param leftId
-     * @param rightId
+     * @param oneColumn
+     * @param anotherColumn
      * @param otherClauses
      * @return
      */
-    IJoinQuery innerJoin(String table, String leftId, String rightId, String otherClauses);
+    IJoinQuery innerJoin(String table, String oneColumn, String anotherColumn, String otherClauses);
 
 }

@@ -1,4 +1,6 @@
-package SelectQueryElements;
+package SelectQueryElements.QueryMethods;
+
+import SelectQueryElements.OrderByQuery;
 
 public interface IOrderByMethods {
 

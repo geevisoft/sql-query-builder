@@ -1,9 +1,11 @@
 package SelectQueryElements;
 
+import SelectQueryElements.QueryMethods.IWhereMethods;
+
 /**
  * Capable of where, group and order
  */
-public class WhereableQuery extends EndQuery {
+public class WhereableQuery extends EndQuery implements IWhereMethods {
 
     protected WhereableQuery(String query) {
         super(query);

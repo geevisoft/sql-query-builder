@@ -1,4 +1,6 @@
-package SelectQueryElements;
+package SelectQueryElements.QueryMethods;
+
+import SelectQueryElements.IJoinQuery;
 
 public interface IRightJoinMethods {
 
@@ -13,19 +15,19 @@ public interface IRightJoinMethods {
     /**
      * Make right join with given table and default equality
      * @param table
-     * @param leftId
-     * @param rightId
+     * @param oneColumn
+     * @param anotherColumn
      * @return
      */
-    IJoinQuery rightJoin(String table, String leftId, String rightId);
+    IJoinQuery rightJoin(String table, String oneColumn, String anotherColumn);
 
     /**
      * Make right join with given table, default equality and other complementary clause
      * @param table
-     * @param leftId
-     * @param rightId
+     * @param oneColumn
+     * @param anotherColumn
      * @param otherClauses
      * @return
      */
-    IJoinQuery rightJoin(String table, String leftId, String rightId, String otherClauses);
+    IJoinQuery rightJoin(String table, String oneColumn, String anotherColumn, String otherClauses);
 }

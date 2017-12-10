@@ -1,4 +1,6 @@
-package SelectQueryElements;
+package SelectQueryElements.QueryMethods;
+
+import SelectQueryElements.GroupByQuery;
 
 public interface IGroupByMethods {
 
