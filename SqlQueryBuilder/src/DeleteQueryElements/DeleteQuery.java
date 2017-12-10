@@ -1,7 +1,7 @@
 package DeleteQueryElements;
 
+import QueryElements.FinishableQuery;
 import QueryElements.Query;
-import QueryElements.WhereQuery;
 
 public class DeleteQuery extends Query {
 
@@ -9,17 +9,17 @@ public class DeleteQuery extends Query {
         this.previousQuery = query;
     }
 
-    public WhereQuery where(String clause){
+    public FinishableQuery where(String clause){
         localClause = String.format("WHERE %s", clause);
-        return new WhereQuery(formattedQuery());
+        return new FinishableQuery(formattedQuery());
     }
 
-    public WhereQuery whereEquals(String column, String value){
+    public FinishableQuery whereEquals(String column, String value){
         String clause = String.format("%s='%s'", column, value);
         return where(clause);
     }
 
-    public WhereQuery whereEquals(String column, int value){
+    public FinishableQuery whereEquals(String column, int value){
         String clause = String.format("%s=%d", column, value);
         return where(clause);
     }

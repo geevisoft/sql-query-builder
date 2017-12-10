@@ -1,7 +1,7 @@
 package UpdateQueryElements;
 
+import QueryElements.FinishableQuery;
 import QueryElements.Query;
-import QueryElements.WhereQuery;
 import Utils.StringHelper;
 
 import java.util.ArrayList;
@@ -16,24 +16,24 @@ public class WhereableQuery extends Query {
         setValues = new ArrayList<String>();
     }
 
-    public WhereQuery where(String clause){
+    public FinishableQuery where(String clause){
         String setValuesQuery = StringHelper.join(", ", setValues);
         localClause = String.format("SET %s WHERE %s", setValuesQuery, clause);
-        return new WhereQuery(formattedQuery());
+        return whereQuery();
     }
 
-    public WhereQuery whereEqual(String column, String value){
+    public FinishableQuery whereEqual(String column, String value){
         String clause = equal(column, value);
         return where(clause);
     }
 
-    public WhereQuery whereEqual(String column, int value){
+    public FinishableQuery whereEqual(String column, int value){
         String clause = equal(column, value);
         return where(clause);
     }
 
-    private WhereQuery whereQuery(){
-        return new WhereQuery(formattedQuery());
+    private FinishableQuery whereQuery(){
+        return new FinishableQuery(formattedQuery());
     }
 
 }

@@ -8,6 +8,8 @@ import java.util.Collection;
 
 public class StringHelper {
 
+    private StringHelper() { }
+
     /**
      * Returns whether given value is null or empty
      * @param value
