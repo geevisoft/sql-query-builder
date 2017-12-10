@@ -5,9 +5,9 @@ import SelectQueryElements.QueryMethods.JoinMethods;
 /**
  * Element in the middle of the query, still capable of a lot of method calls
  */
-public class MediumQuery extends WhereableQuery {
+public class JoinableQuery extends WhereableQuery {
 
-    protected MediumQuery(String query) {
+    protected JoinableQuery(String query) {
         super(query);
     }
 

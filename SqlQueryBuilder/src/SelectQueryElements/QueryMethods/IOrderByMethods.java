@@ -1,6 +1,6 @@
 package SelectQueryElements.QueryMethods;
 
-import SelectQueryElements.OrderByQuery;
+import QueryElements.FinishableQuery;
 
 public interface IOrderByMethods {
 
@@ -10,7 +10,7 @@ public interface IOrderByMethods {
      * @param otherColumns
      * @return
      */
-    OrderByQuery orderBy(String firstColumn, String... otherColumns);
+    FinishableQuery orderBy(String firstColumn, String... otherColumns);
 
     /**
      * Order query descending by given column(s)
@@ -18,6 +18,6 @@ public interface IOrderByMethods {
      * @param otherColumns
      * @return
      */
-    OrderByQuery orderByDescending(String firstColumn, String... otherColumns);
+    FinishableQuery orderByDescending(String firstColumn, String... otherColumns);
 
 }

@@ -11,23 +11,23 @@ public class WhereableQuery extends EndQuery implements IWhereMethods {
         super(query);
     }
 
-    public WhereQuery where(String clause){
+    public EndQuery where(String clause){
         localClause = String.format("WHERE %s", clause);
         return whereQuery();
     }
 
-    public WhereQuery whereEqual(String column, String value){
+    public EndQuery whereEqual(String column, String value){
         String clause = equal(column, value);
         return where(clause);
     }
 
-    public WhereQuery whereEqual(String column, int value){
+    public EndQuery whereEqual(String column, int value){
         String clause = equal(column, value);
         return where(clause);
     }
 
-    private WhereQuery whereQuery(){
-        return new WhereQuery(formattedQuery());
+    private EndQuery whereQuery(){
+        return new EndQuery(formattedQuery());
     }
 
 }

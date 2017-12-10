@@ -1,6 +1,6 @@
 package SelectQueryElements.QueryMethods;
 
-import SelectQueryElements.WhereQuery;
+import SelectQueryElements.EndQuery;
 
 public interface IWhereMethods {
 
@@ -9,22 +9,22 @@ public interface IWhereMethods {
      * @param clause
      * @return
      */
-    WhereQuery where(String clause);
+    EndQuery where(String clause);
 
     /**
      * Filter query with given equality as clause
-     * @param left
-     * @param right
+     * @param column
+     * @param value
      * @return
      */
-    WhereQuery whereEqual(String left, String right);
+    EndQuery whereEqual(String column, String value);
 
     /**
      * Filter query with given equality as clause
-     * @param left
-     * @param right
+     * @param column
+     * @param value
      * @return
      */
-    WhereQuery whereEqual(String left, int right);
+    EndQuery whereEqual(String column, int value);
 
 }

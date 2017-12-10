@@ -9,13 +9,13 @@ public class SelectQuery implements ISelectQuery {
         this.previousQuery = selectQuery;
     }
 
-    public FromQuery from(String table){
+    public JoinableQuery from(String table){
         selectClause = String.format("FROM %s", table);
         return fromQuery();
     }
 
-    private FromQuery fromQuery(){
+    private JoinableQuery fromQuery(){
         String formattedQuery = String.format("%s %s", previousQuery, selectClause);
-        return new FromQuery(formattedQuery);
+        return new JoinableQuery(formattedQuery);
     }
 }

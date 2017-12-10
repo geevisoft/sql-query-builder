@@ -7,5 +7,5 @@ public interface ISelectQuery {
      * @param table
      * @return
      */
-    FromQuery from(String table);
+    JoinableQuery from(String table);
 }

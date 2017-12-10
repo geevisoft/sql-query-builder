@@ -1,27 +1,27 @@
 package SelectQueryElements;
 
 import QueryElements.FinishableQuery;
+import SelectQueryElements.QueryMethods.IOrderByMethods;
 import Utils.StringHelper;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class OrderableQuery extends FinishableQuery {
+public class OrderableQuery extends FinishableQuery implements IOrderByMethods {
 
     protected OrderableQuery(String query) {
         super(query);
     }
 
-    //<editor-fold desc="ORDER BY">
-    public OrderByQuery orderBy(String firstColumn, String... otherColumns){
+    public FinishableQuery orderBy(String firstColumn, String... otherColumns){
         return orderBy(StringHelper.EMPTY, firstColumn, otherColumns);
     }
 
-    public OrderByQuery orderByDescending(String firstColumn, String... otherColumns){
+    public FinishableQuery orderByDescending(String firstColumn, String... otherColumns){
         return orderBy("DESC", firstColumn, otherColumns);
     }
 
-    private OrderByQuery orderBy(String direction, String firstColumn, String... otherColumns){
+    private FinishableQuery orderBy(String direction, String firstColumn, String... otherColumns){
         String columnQuery = columnQuery(firstColumn, otherColumns);
         if(StringHelper.isNullOrEmpty(direction)){
             localClause = String.format("ORDER BY %s", columnQuery);
@@ -31,10 +31,9 @@ public class OrderableQuery extends FinishableQuery {
         return orderByQuery();
     }
 
-    private OrderByQuery orderByQuery(){
-        return new OrderByQuery(formattedQuery());
+    private FinishableQuery orderByQuery(){
+        return new FinishableQuery(formattedQuery());
     }
-    //</editor-fold>
 
     protected String columnQuery(String firstColumn, String... otherColumns){
         ArrayList<String> columns = new ArrayList<String>(Arrays.asList(otherColumns));
