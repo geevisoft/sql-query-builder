@@ -1,7 +1,10 @@
 import DeleteQueryElements.DeleteQuery;
+import DeleteQueryElements.IDeleteQuery;
+import InsertQueryElements.IInsertQuery;
 import InsertQueryElements.InsertQuery;
 import SelectQueryElements.ISelectQuery;
 import SelectQueryElements.SelectQuery;
+import UpdateQueryElements.IUpdateQuery;
 import UpdateQueryElements.UpdateQuery;
 import Utils.StringHelper;
 
@@ -29,17 +32,17 @@ public class SqlQueryBuilder {
 		return new SelectQuery(formattedQuery);
 	}
 
-	public UpdateQuery update(String table){
+	public IUpdateQuery update(String table){
 		String formattedQuery = String.format("UPDATE %s", table);
 		return new UpdateQuery(formattedQuery);
 	}
 
-	public DeleteQuery delete(String table){
+	public IDeleteQuery delete(String table){
 		String formattedQuery = String.format("DELETE FROM %s", table);
 		return new DeleteQuery(formattedQuery);
 	}
 
-	public InsertQuery insertInto(String table){
+	public IInsertQuery insertInto(String table){
 		String formattedQuery = String.format("INSERT INTO %s", table);
 		return new InsertQuery(formattedQuery);
 	}

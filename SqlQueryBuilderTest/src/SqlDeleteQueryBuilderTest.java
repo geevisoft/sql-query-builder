@@ -5,20 +5,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SqlDeleteQueryBuilderTest {
 
-    private SqlQueryBuilder builder;
+	private SqlQueryBuilder builder;
 
-    @BeforeEach
-    void setUp() {
-        builder = new SqlQueryBuilder();
-    }
+	@BeforeEach
+	void setUp() {
+		builder = new SqlQueryBuilder();
+	}
 
-    @Test
-    void deleteWithWhere(){
-        String query = builder
-                .delete("Users")
-                .whereEquals("ID", 1)
-                .query();
-        String writtenQuery = "DELETE FROM Users WHERE ID=1";
-        assertEquals(query, writtenQuery);
-    }
+	@Test
+	void deleteWithWhere(){
+		String query = builder
+			.delete("Users")
+			.whereEquals("ID", 1)
+			.query();
+		String writtenQuery = "DELETE FROM Users WHERE ID=1";
+		assertEquals(query, writtenQuery);
+	}
 }
