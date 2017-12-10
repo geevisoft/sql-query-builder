@@ -1,9 +1,9 @@
 package SelectQueryElements.QueryMethods;
 
-import SelectQueryElements.EndQuery;
+import SelectQueryElements.GroupQuery;
 import SelectQueryElements.JoinQuery;
 
-public class JoinMethods extends EndQuery {
+public class JoinMethods extends GroupQuery {
 
     private final String type;
 

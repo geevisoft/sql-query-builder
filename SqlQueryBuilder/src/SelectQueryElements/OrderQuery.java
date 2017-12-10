@@ -7,9 +7,9 @@ import Utils.StringHelper;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class OrderableQuery extends FinishableQuery implements IOrderByMethods {
+public class OrderQuery extends FinishableQuery implements IOrderByMethods {
 
-    protected OrderableQuery(String query) {
+    protected OrderQuery(String query) {
         super(query);
     }
 

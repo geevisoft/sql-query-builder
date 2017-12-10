@@ -1,6 +1,6 @@
 package SelectQueryElements.QueryMethods;
 
-import SelectQueryElements.OrderableQuery;
+import SelectQueryElements.OrderQuery;
 
 public interface IGroupByMethods {
 
@@ -10,6 +10,6 @@ public interface IGroupByMethods {
      * @param otherColumns
      * @return
      */
-    OrderableQuery groupBy(String firstColumn, String... otherColumns);
+    OrderQuery groupBy(String firstColumn, String... otherColumns);
 
 }

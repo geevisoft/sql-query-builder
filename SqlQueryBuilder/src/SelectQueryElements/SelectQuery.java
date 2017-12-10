@@ -1,6 +1,8 @@
 package SelectQueryElements;
 
-public class SelectQuery implements ISelectQuery {
+import SelectQueryElements.QueryMethods.IFromMethods;
+
+public class SelectQuery implements IFromMethods {
 
 	private final String previousQuery;
 	private String selectClause;
@@ -9,19 +11,19 @@ public class SelectQuery implements ISelectQuery {
 		this.previousQuery = selectQuery;
 	}
 
-	public JoinableQuery from(String table){
+	public JoinQuery from(String table){
 		selectClause = String.format("FROM %s", table);
 		return fromQuery();
 	}
 
-	public JoinableQuery from(String table, String alias){
+	public JoinQuery from(String table, String alias){
 		selectClause = String.format("FROM %s %s", table, alias);
 		return fromQuery();
 	}
 
-	private JoinableQuery fromQuery(){
+	private JoinQuery fromQuery(){
 		String formattedQuery = String.format("%s %s", previousQuery, selectClause);
-		return new JoinableQuery(formattedQuery);
+		return new JoinQuery(formattedQuery);
 	}
 
 }

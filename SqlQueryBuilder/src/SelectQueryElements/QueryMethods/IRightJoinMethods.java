@@ -1,7 +1,5 @@
 package SelectQueryElements.QueryMethods;
 
-import SelectQueryElements.IJoinQuery;
-
 public interface IRightJoinMethods {
 
     /**
@@ -10,7 +8,7 @@ public interface IRightJoinMethods {
      * @param clause
      * @return
      */
-    IJoinQuery rightJoin(String table, String clause);
+	IWhereMethods rightJoin(String table, String clause);
 
     /**
      * Make right join with given table and default equality
@@ -19,7 +17,7 @@ public interface IRightJoinMethods {
      * @param anotherColumn
      * @return
      */
-    IJoinQuery rightJoin(String table, String oneColumn, String anotherColumn);
+	IWhereMethods rightJoin(String table, String oneColumn, String anotherColumn);
 
     /**
      * Make right join with given table, default equality and other complementary clause
@@ -29,5 +27,5 @@ public interface IRightJoinMethods {
      * @param otherClauses
      * @return
      */
-    IJoinQuery rightJoin(String table, String oneColumn, String anotherColumn, String otherClauses);
+	IWhereMethods rightJoin(String table, String oneColumn, String anotherColumn, String otherClauses);
 }
