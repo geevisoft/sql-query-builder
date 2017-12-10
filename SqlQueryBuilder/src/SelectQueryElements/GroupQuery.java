@@ -1,24 +1,22 @@
 package SelectQueryElements;
 
-import SelectQueryElements.QueryMethods.IGroupByMethods;
-
 /**
  * Element at almost the end of the query, capable of group and order
  */
-public class GroupQuery extends OrderQuery implements IGroupByMethods {
+public class GroupQuery extends OrderQuery implements IGroupQuery {
 
-    protected GroupQuery(String query) {
-        super(query);
-    }
+	protected GroupQuery(String query) {
+		super(query);
+	}
 
-    public OrderQuery groupBy(String firstColumn, String... otherColumns){
-        String columnQuery = columnQuery(firstColumn, otherColumns);
-        localClause = String.format("GROUP BY %s", columnQuery);
-        return groupByQuery();
-    }
+	public IOrderQuery groupBy(String firstColumn, String... otherColumns){
+		String columnQuery = columnQuery(firstColumn, otherColumns);
+		localClause = String.format("GROUP BY %s", columnQuery);
+		return groupByQuery();
+	}
 
-    private OrderQuery groupByQuery(){
-        return new OrderQuery(formattedQuery());
-    }
+	private IOrderQuery groupByQuery(){
+		return new OrderQuery(formattedQuery());
+	}
 
 }
