@@ -25,4 +25,28 @@ public interface IWhereQuery extends IGroupQuery {
 	 */
 	IGroupQuery whereEqual(String column, int value);
 
+	/**
+	 * Filter query with given inclusion as clause
+	 * @param column
+	 * @param values
+	 * @return
+	 */
+	IGroupQuery whereIn(String column, String ...values);
+
+	/**
+	 * Filter query with given inclusion as clause
+	 * @param column
+	 * @param values
+	 * @return
+	 */
+	IGroupQuery whereIn(String column, int ...values);
+
+	/**
+	 * Filter query with given inclusion as clause
+	 * @param column
+	 * @param values
+	 * @return
+	 */
+	IGroupQuery whereIn(String column, double ...values);
+
 }

@@ -149,4 +149,27 @@ public class SqlSelectQueryBuilderTest {
 	    String writtenQuery = "SELECT u.ID, c.ID, t.ID FROM Users u INNER JOIN Clients c ON c.ID=u.ClientID LEFT JOIN Tickets t ON t.UserID=u.ID";
 	    assertEquals(writtenQuery, query);
 	}
+
+	@Test
+	void selectWithWhereIn(){
+	    String query = builder
+			.select()
+			.from("Users")
+			.whereIn("Username", "jack", "joe")
+			.query();
+	    String writtenQuery = "SELECT * FROM Users WHERE Username IN ('jack', 'joe')";
+	    assertEquals(writtenQuery, query);
+	}
+
+	@Test
+	void selectWithAListForWhereIn(){
+		int[] validYears = new int[]{5, 7, 8, 25};
+	    String query = builder
+			.select()
+			.from("Users")
+			.whereIn("Age", validYears)
+			.query();
+	    String writtenQuery = "SELECT * FROM Users WHERE Age IN (5, 7, 8, 25)";
+	    assertEquals(writtenQuery, query);
+	}
 }
