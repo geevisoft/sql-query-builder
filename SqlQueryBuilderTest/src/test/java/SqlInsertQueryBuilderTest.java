@@ -1,7 +1,6 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SqlInsertQueryBuilderTest {
 
@@ -19,7 +18,7 @@ public class SqlInsertQueryBuilderTest {
 			.value("FirstName", "John")
 			.query();
 		String writtenQuery = "INSERT INTO Users (FirstName) VALUES ('John')";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -31,6 +30,6 @@ public class SqlInsertQueryBuilderTest {
 			.value("Age", 21)
 			.query();
 		String writtenQuery = "INSERT INTO Users (FirstName, LastName, Age) VALUES ('John', 'Doe', 21)";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 }

@@ -22,6 +22,7 @@
 .idea/**/tasks.xml
 .idea/dictionaries
 .idea/**/vcs.xml
+.idea/misc.xml
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
@@ -32,9 +33,17 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 
-# Gradle:
-.idea/**/gradle.xml
-.idea/**/libraries
+# Gradle and Maven with auto-import
+# When using Gradle or Maven with auto-import, you should exclude module files,
+# since they will be recreated, and may cause churn.
+.idea/artifacts
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.idea/modules.xml
+.idea/*.iml
+.idea/modules
+*.iml
+*.ipr
 
 # CMake
 cmake-build-debug/
@@ -46,6 +55,7 @@ cmake-build-debug/
 *.iws
 
 ## Plugin-specific files:
+.idea/git_toolbox_prj.xml
 
 # IntelliJ
 out/
@@ -58,3 +68,9 @@ atlassian-ide-plugin.xml
 
 # Cursive Clojure plugin
 .idea/replstate.xml
+
+# Sonarlint files
+.idea/sonarlint/
+
+# Maven
+target/

@@ -1,7 +1,6 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SqlDeleteQueryBuilderTest {
 
@@ -19,6 +18,6 @@ public class SqlDeleteQueryBuilderTest {
 			.whereEquals("ID", 1)
 			.query();
 		String writtenQuery = "DELETE FROM Users WHERE ID=1";
-		assertEquals(query, writtenQuery);
+		Assertions.assertEquals(query, writtenQuery);
 	}
 }
