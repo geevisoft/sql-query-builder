@@ -3,6 +3,9 @@
 Just another SQL query builder focused on Java legacy projects. 
 You will not have to modify any of your existing code to start using this when adding new functionality in your project.
 
+[![CI](https://github.com/geevisoft/sql-query-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/geevisoft/sql-query-builder/actions/workflows/ci.yml)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 ## Getting Started
 
 Load [SqlQueryBuilder.jar](SqlQueryBuilder.jar) as a library in your project
