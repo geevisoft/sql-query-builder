@@ -1,7 +1,6 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SqlSelectQueryBuilderTest {
 
@@ -19,7 +18,7 @@ public class SqlSelectQueryBuilderTest {
 			.from("Users")
 			.query();
 		String writtenQuery = "SELECT FirstName, LastName FROM Users";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -29,7 +28,7 @@ public class SqlSelectQueryBuilderTest {
 			.from("Users")
 			.query();
 		String writtenQuery = "SELECT * FROM Users";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -40,7 +39,7 @@ public class SqlSelectQueryBuilderTest {
 			.where("LastName = 'Doe'")
 			.query();
 		String writtenQuery = "SELECT * FROM Users WHERE LastName = 'Doe'";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -50,7 +49,7 @@ public class SqlSelectQueryBuilderTest {
 			.from("Users", "u")
 			.query();
 		String writtenQuery = "SELECT u.FirstName FROM Users u";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -61,7 +60,7 @@ public class SqlSelectQueryBuilderTest {
 			.orderBy("LastName")
 			.query();
 		String writtenQuery = "SELECT * FROM Users ORDER BY LastName";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -74,7 +73,7 @@ public class SqlSelectQueryBuilderTest {
 			.orderBy("FirstName")
 			.query();
 		String writtenQuery = "SELECT * FROM Users INNER JOIN Clients ON ClientID=ID WHERE LastName='Doe' ORDER BY FirstName";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -87,7 +86,7 @@ public class SqlSelectQueryBuilderTest {
 			.groupBy("FirstName")
 			.query();
 		String writtenQuery = "SELECT * FROM Users INNER JOIN Clients ON ClientID=ID WHERE LastName='Doe' GROUP BY FirstName";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -99,7 +98,7 @@ public class SqlSelectQueryBuilderTest {
 			.groupBy("FirstName")
 			.query();
 		String writtenQuery = "SELECT * FROM Users INNER JOIN Clients ON ClientID=ID GROUP BY FirstName";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -112,7 +111,7 @@ public class SqlSelectQueryBuilderTest {
 			.orderBy("LastName")
 			.query();
 		String writtenQuery = "SELECT * FROM Users INNER JOIN Clients ON ClientID=ID GROUP BY FirstName ORDER BY LastName";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -124,7 +123,7 @@ public class SqlSelectQueryBuilderTest {
 			.innerJoin("Tickets", "UserID", "ID")
 			.query();
 		String writtenQuery = "SELECT * FROM Users INNER JOIN Clients ON ClientID=ID INNER JOIN Tickets ON UserID=ID";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -135,7 +134,7 @@ public class SqlSelectQueryBuilderTest {
 			.orderBy("LastName", "FirstName")
 			.query();
 		String writtenQuery = "SELECT * FROM Users ORDER BY LastName, FirstName";
-		assertEquals(writtenQuery, query);
+		Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -147,7 +146,7 @@ public class SqlSelectQueryBuilderTest {
 			.leftJoinAs("Tickets", "t", "t.UserID=u.ID")
 			.query();
 	    String writtenQuery = "SELECT u.ID, c.ID, t.ID FROM Users u INNER JOIN Clients c ON c.ID=u.ClientID LEFT JOIN Tickets t ON t.UserID=u.ID";
-	    assertEquals(writtenQuery, query);
+	    Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -158,7 +157,7 @@ public class SqlSelectQueryBuilderTest {
 			.whereIn("Username", "jack", "joe")
 			.query();
 	    String writtenQuery = "SELECT * FROM Users WHERE Username IN ('jack', 'joe')";
-	    assertEquals(writtenQuery, query);
+	    Assertions.assertEquals(writtenQuery, query);
 	}
 
 	@Test
@@ -170,6 +169,6 @@ public class SqlSelectQueryBuilderTest {
 			.whereIn("Age", validYears)
 			.query();
 	    String writtenQuery = "SELECT * FROM Users WHERE Age IN (5, 7, 8, 25)";
-	    assertEquals(writtenQuery, query);
+	    Assertions.assertEquals(writtenQuery, query);
 	}
 }
